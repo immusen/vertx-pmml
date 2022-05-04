@@ -1,0 +1,25 @@
+{
+    "http.port": 8080,
+    "route": {
+        "/predict/iris": {
+            "access": "public",
+            "method": "POST",
+            "actor": "evaluter.predict",
+            "ext": {
+                "pmml": ".\\config\\model_svc.pmml",
+                "name": "IRIS_SVC",
+                "version": "1.0.0"
+            }
+        },
+        "/stat/:name": {
+            "access": "session.admin",
+            "method": "GET",
+            "actor": "evaluter.stat"
+        },
+        "/console/login": {
+            "access": "public",
+            "method": "GET",
+            "actor": "web_login"
+        }
+    }
+}

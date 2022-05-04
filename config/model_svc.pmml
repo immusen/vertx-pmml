@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
+	<Header>
+		<Application name="JPMML-SkLearn library" version="1.7.4"/>
+		<Timestamp>2022-05-02T06:57:23Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension name="repr">PMMLPipeline(steps=[('model', SVC(kernel='linear'))])</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="species" optype="categorical" dataType="string">
+			<Value value="setosa"/>
+			<Value value="versicolor"/>
+			<Value value="virginica"/>
+		</DataField>
+		<DataField name="sepal_length" optype="continuous" dataType="double"/>
+		<DataField name="sepal_width" optype="continuous" dataType="double"/>
+		<DataField name="petal_length" optype="continuous" dataType="double"/>
+		<DataField name="petal_width" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<SupportVectorMachineModel functionName="classification" algorithmName="sklearn.svm._classes.SVC" classificationMethod="OneAgainstOne">
+		<MiningSchema>
+			<MiningField name="species" usageType="target"/>
+			<MiningField name="sepal_length"/>
+			<MiningField name="sepal_width"/>
+			<MiningField name="petal_length"/>
+			<MiningField name="petal_width"/>
+		</MiningSchema>
+		<LinearKernelType/>
+		<VectorDictionary>
+			<VectorFields>
+				<FieldRef field="sepal_length"/>
+				<FieldRef field="sepal_width"/>
+				<FieldRef field="petal_length"/>
+				<FieldRef field="petal_width"/>
+			</VectorFields>
+			<VectorInstance id="5">
+				<Array type="real">5.0 3.0 1.6 0.2</Array>
+			</VectorInstance>
+			<VectorInstance id="38">
+				<Array type="real">4.8 3.4 1.9 0.2</Array>
+			</VectorInstance>
+			<VectorInstance id="67">
+				<Array type="real">5.1 3.8 1.9 0.4</Array>
+			</VectorInstance>
+			<VectorInstance id="12">
+				<Array type="real">5.7 2.6 3.5 1.0</Array>
+			</VectorInstance>
+			<VectorInstance id="32">
+				<Array type="real">6.7 3.1 4.7 1.5</Array>
+			</VectorInstance>
+			<VectorInstance id="36">
+				<Array type="real">6.8 2.8 4.8 1.4</Array>
+			</VectorInstance>
+			<VectorInstance id="37">
+				<Array type="real">6.1 3.0 4.6 1.4</Array>
+			</VectorInstance>
+			<VectorInstance id="50">
+				<Array type="real">6.2 2.2 4.5 1.5</Array>
+			</VectorInstance>
+			<VectorInstance id="59">
+				<Array type="real">5.9 3.2 4.8 1.8</Array>
+			</VectorInstance>
+			<VectorInstance id="60">
+				<Array type="real">6.9 3.1 4.9 1.5</Array>
+			</VectorInstance>
+			<VectorInstance id="61">
+				<Array type="real">6.3 2.5 4.9 1.5</Array>
+			</VectorInstance>
+			<VectorInstance id="72">
+				<Array type="real">6.0 2.7 5.1 1.6</Array>
+			</VectorInstance>
+			<VectorInstance id="8">
+				<Array type="real">7.2 3.0 5.8 1.6</Array>
+			</VectorInstance>
+			<VectorInstance id="18">
+				<Array type="real">6.2 2.8 4.8 1.8</Array>
+			</VectorInstance>
+			<VectorInstance id="21">
+				<Array type="real">5.6 2.8 4.9 2.0</Array>
+			</VectorInstance>
+			<VectorInstance id="58">
+				<Array type="real">6.3 2.5 5.0 1.9</Array>
+			</VectorInstance>
+			<VectorInstance id="73">
+				<Array type="real">6.5 3.2 5.1 2.0</Array>
+			</VectorInstance>
+			<VectorInstance id="77">
+				<Array type="real">5.9 3.0 5.1 1.8</Array>
+			</VectorInstance>
+			<VectorInstance id="83">
+				<Array type="real">6.0 2.2 5.0 1.5</Array>
+			</VectorInstance>
+		</VectorDictionary>
+		<SupportVectorMachine targetCategory="versicolor" alternateTargetCategory="setosa">
+			<SupportVectors>
+				<SupportVector vectorId="5"/>
+				<SupportVector vectorId="38"/>
+				<SupportVector vectorId="67"/>
+				<SupportVector vectorId="12"/>
+				<SupportVector vectorId="32"/>
+				<SupportVector vectorId="36"/>
+				<SupportVector vectorId="37"/>
+				<SupportVector vectorId="50"/>
+				<SupportVector vectorId="59"/>
+				<SupportVector vectorId="60"/>
+				<SupportVector vectorId="61"/>
+				<SupportVector vectorId="72"/>
+			</SupportVectors>
+			<Coefficients absoluteValue="2.6279035334117276">
+				<Coefficient value="0.0974900274417194"/>
+				<Coefficient value="0.14202275479970336"/>
+				<Coefficient value="0.19564204034591867"/>
+				<Coefficient value="-0.4351548225873415"/>
+				<Coefficient value="-0.0"/>
+				<Coefficient value="-0.0"/>
+				<Coefficient value="-0.0"/>
+				<Coefficient value="-0.0"/>
+				<Coefficient value="-0.0"/>
+				<Coefficient value="-0.0"/>
+				<Coefficient value="-0.0"/>
+				<Coefficient value="-0.0"/>
+			</Coefficients>
+		</SupportVectorMachine>
+		<SupportVectorMachine targetCategory="virginica" alternateTargetCategory="setosa">
+			<SupportVectors>
+				<SupportVector vectorId="5"/>
+				<SupportVector vectorId="38"/>
+				<SupportVector vectorId="67"/>
+				<SupportVector vectorId="8"/>
+				<SupportVector vectorId="18"/>
+				<SupportVector vectorId="21"/>
+				<SupportVector vectorId="58"/>
+				<SupportVector vectorId="73"/>
+				<SupportVector vectorId="77"/>
+				<SupportVector vectorId="83"/>
+			</SupportVectors>
+			<Coefficients absoluteValue="2.1587774427158966">
+				<Coefficient value="0.0"/>
+				<Coefficient value="0.0"/>
+				<Coefficient value="0.15924521870629096"/>
+				<Coefficient value="-0.0"/>
+				<Coefficient value="-0.12478555356430157"/>
+				<Coefficient value="-0.0344596651419894"/>
+				<Coefficient value="-0.0"/>
+				<Coefficient value="-0.0"/>
+				<Coefficient value="-0.0"/>
+				<Coefficient value="-0.0"/>
+			</Coefficients>
+		</SupportVectorMachine>
+		<SupportVectorMachine targetCategory="virginica" alternateTargetCategory="versicolor">
+			<SupportVectors>
+				<SupportVector vectorId="12"/>
+				<SupportVector vectorId="32"/>
+				<SupportVector vectorId="36"/>
+				<SupportVector vectorId="37"/>
+				<SupportVector vectorId="50"/>
+				<SupportVector vectorId="59"/>
+				<SupportVector vectorId="60"/>
+				<SupportVector vectorId="61"/>
+				<SupportVector vectorId="72"/>
+				<SupportVector vectorId="8"/>
+				<SupportVector vectorId="18"/>
+				<SupportVector vectorId="21"/>
+				<SupportVector vectorId="58"/>
+				<SupportVector vectorId="73"/>
+				<SupportVector vectorId="77"/>
+				<SupportVector vectorId="83"/>
+			</SupportVectors>
+			<Coefficients absoluteValue="8.211501808340135">
+				<Coefficient value="0.0"/>
+				<Coefficient value="0.4421639005490785"/>
+				<Coefficient value="0.39843066433816693"/>
+				<Coefficient value="0.9352583933745516"/>
+				<Coefficient value="1.0"/>
+				<Coefficient value="1.0"/>
+				<Coefficient value="1.0"/>
+				<Coefficient value="1.0"/>
+				<Coefficient value="1.0"/>
+				<Coefficient value="-0.775852958261797"/>
+				<Coefficient value="-1.0"/>
+				<Coefficient value="-1.0"/>
+				<Coefficient value="-1.0"/>
+				<Coefficient value="-1.0"/>
+				<Coefficient value="-1.0"/>
+				<Coefficient value="-1.0"/>
+			</Coefficients>
+		</SupportVectorMachine>
+	</SupportVectorMachineModel>
+</PMML>
