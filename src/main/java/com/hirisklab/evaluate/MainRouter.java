@@ -33,7 +33,7 @@ public class MainRouter {
             if (method.equals("POST"))
                 router.route().handler(BodyHandler.create());
             if (!access.equals("public")) // TODO: access control
-                router.route("/").handler(rc -> rc.response().setStatusCode(401).end());
+                router.route().handler(rc -> rc.response().setStatusCode(401).end());
             if (method.equals("GET")) {
                 router.get(path)
                         .handler(rc -> eventBus.request(actor, TransCodec.toJsonObject(rc.queryParams()), reply(rc)));
@@ -47,7 +47,7 @@ public class MainRouter {
 
     private final static <T> Handler<AsyncResult<Message<Object>>> reply(RoutingContext rtx) {
         return reply -> {
-            System.out.println(reply.result());
+            System.out.println("reply result: " + reply.result());
             String statusCode = Optional.ofNullable(reply.result().headers().get(HEADER_STATUS_CODE)).orElse("200");
             String statusMsg = Optional.ofNullable(reply.result().headers().get(HEADER_STATUS_MESSAGE)).orElse("ok");
             reply.result()
