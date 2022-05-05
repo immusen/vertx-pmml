@@ -11,7 +11,6 @@ import io.vertx.core.Handler;
 import io.vertx.core.Promise;
 import io.vertx.core.json.JsonObject;
 
-
 /**
  * Evaluator api implementation...
  * @author immusen

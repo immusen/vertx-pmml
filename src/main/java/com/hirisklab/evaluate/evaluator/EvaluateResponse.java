@@ -1,10 +1,8 @@
 package com.hirisklab.evaluate.evaluator;
 
 import com.hirisklab.evaluate.MainException;
-
 import io.vertx.core.MultiMap;
 import io.vertx.core.json.JsonObject;
-
 
 /**
  * Evaluate reponse...

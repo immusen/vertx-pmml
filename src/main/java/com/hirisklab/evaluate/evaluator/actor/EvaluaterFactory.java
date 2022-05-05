@@ -1,6 +1,5 @@
 package com.hirisklab.evaluate.evaluator.actor;
 
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import com.hirisklab.evaluate.evaluator.util.EvaluateException;

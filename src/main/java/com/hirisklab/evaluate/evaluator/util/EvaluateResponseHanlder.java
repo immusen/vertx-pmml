@@ -11,7 +11,7 @@ import io.vertx.core.eventbus.Message;
 import io.vertx.core.json.JsonObject;
 
 /**
- * =API response async handler...
+ * API response async handler...
  * @author immusen
  */
 public class EvaluateResponseHanlder {

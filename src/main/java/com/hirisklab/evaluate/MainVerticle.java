@@ -1,5 +1,6 @@
 package com.hirisklab.evaluate;
 
+import com.hirisklab.evaluate.console.ConsoleVerticle;
 import com.hirisklab.evaluate.evaluator.EvaluateVerticle;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
@@ -15,15 +16,11 @@ public class MainVerticle extends AbstractVerticle {
   @Override
   public void start(Promise<Void> startPromise) throws Exception {
     System.out.println(config().getJsonObject("route"));
+    sibVerticle(startPromise);
     Router router = MainRouter.create(
         Router.router(vertx),
         vertx.eventBus(),
         config().getJsonObject("route"));
-    vertx.deployVerticle(EvaluateVerticle.class.getName(), res -> {
-      System.out.println(res.result());
-      if (res.failed())
-        startPromise.fail(res.cause());
-    });
     vertx
         .createHttpServer()
         .requestHandler(router)
@@ -39,4 +36,16 @@ public class MainVerticle extends AbstractVerticle {
               }
             });
   }
+
+  public void sibVerticle(Promise<Void> startPromise) throws Exception {
+    vertx.deployVerticle(EvaluateVerticle.class.getName(), res -> {
+      if (res.failed())
+        startPromise.fail(res.cause());
+    });
+    vertx.deployVerticle(ConsoleVerticle.class.getName(), res->{
+      if (res.failed())
+        startPromise.fail(res.cause());
+    });
+  }
+  
 }

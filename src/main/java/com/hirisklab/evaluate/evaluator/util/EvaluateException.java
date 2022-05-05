@@ -2,7 +2,6 @@ package com.hirisklab.evaluate.evaluator.util;
 
 import com.hirisklab.evaluate.MainException;
 
-
 /**
  * Evaluator exception...
  * @author immusen

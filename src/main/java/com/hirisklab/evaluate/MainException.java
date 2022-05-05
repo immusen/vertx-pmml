@@ -1,6 +1,5 @@
 package com.hirisklab.evaluate;
 
-
 /**
  * Evaluate exception
  * @author immusen

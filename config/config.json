@@ -11,15 +11,25 @@
                 "version": "1.0.0"
             }
         },
+        "/iris/svc": {
+            "access": "public",
+            "method": "POST",
+            "actor": "evaluter.predict",
+            "ext": {
+                "pmml": ".\\config\\model_svc.pmml",
+                "name": "IRIS_SVC_MUTI_TEST",
+                "version": "1.0.0"
+            }
+        },
         "/stat/:name": {
             "access": "session.admin",
             "method": "GET",
-            "actor": "evaluter.stat"
+            "actor": "evaluater.stat"
         },
         "/console/login": {
             "access": "public",
             "method": "GET",
-            "actor": "web_login"
+            "actor": "web.login"
         }
     }
 }
