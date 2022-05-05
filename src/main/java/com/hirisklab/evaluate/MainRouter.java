@@ -1,6 +1,9 @@
 package com.hirisklab.evaluate;
 
 import java.util.Optional;
+
+import com.hirisklab.evaluate.evaluator.util.TransCodec;
+
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 import io.vertx.core.eventbus.EventBus;
@@ -24,21 +27,16 @@ public class MainRouter {
             String path = rt.getKey();
             JsonObject rule = (JsonObject) rt.getValue();
             String access = Optional.ofNullable(rule.getString("access")).orElse("public");
-            String actor = Optional.ofNullable(rule.getString("actor")).orElse("abort_404");
+            String actor = Optional.ofNullable(rule.getString("actor")).orElse("abort404");
             String method = Optional.ofNullable(rule.getString("method")).orElse("GET");
             JsonObject ext = Optional.ofNullable(rule.getJsonObject("ext")).orElse(new JsonObject());
             if (method.equals("POST"))
                 router.route().handler(BodyHandler.create());
-            router.route().handler(requestHandler -> {
-                if (access.equals("public")) {
-                    requestHandler.next();
-                } else { // TODO: implement access control
-                    requestHandler.response().setStatusCode(401).end();
-                }
-            });
+            if (!access.equals("public")) // TODO: access control
+                router.route("/").handler(rc -> rc.response().setStatusCode(401).end());
             if (method.equals("GET")) {
                 router.get(path)
-                        .handler(rc -> eventBus.request(actor, new JsonObject(rc.queryParams().toString()), reply(rc)));
+                        .handler(rc -> eventBus.request(actor, TransCodec.toJsonObject(rc.queryParams()), reply(rc)));
             } else if (method.equals("POST")) {
                 router.post(path)
                         .handler(rc -> eventBus.request(actor, rc.getBodyAsJson().put("_EXT", ext), reply(rc)));
